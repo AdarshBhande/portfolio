@@ -52,7 +52,7 @@ export const portfolioData = {
   projects: [
     {
       id: "spidey-os",
-      name: "Spidey OS — Interactive Web Operating System",
+      name: "Spidey OS — Web Portfolio",
       tagline: "Dual-surface CLI terminal and Windows 11 desktop environment.",
       description: "A full dual-surface operating system portfolio featuring an interactive CLI terminal parser, desktop window manager, playable retro games (Minesweeper & Solitaire), MS Paint drawing board with PNG download, and real-time Guest Book powered by Supabase.",
       tags: ["React", "ViteJS", "Supabase", "Vanilla CSS", "Google Fonts"],
@@ -66,43 +66,58 @@ export const portfolioData = {
 - Real-time Visitor Guest Book connected directly to Supabase cloud database.`
     },
     {
-      id: "groove-music",
-      name: "Groove Music — Browser Audio Suite",
-      tagline: "Background audio player with equalizer visualizers & playlist control.",
-      description: "Features background MP3 audio playback auto-starting Sunflower with full playlist controls, dynamic equalizer visualizers, volume slider, seek bar, and state preservation across lock screen transitions.",
-      tags: ["React Hooks", "HTML5 Audio API", "CSS Animations", "Web Audio"],
-      github: "https://github.com/AdarshBhande/portfolio",
-      demo: "https://adarshbhande.github.io/portfolio/",
-      readme: `# Groove Music — Browser Audio Suite
-- 5 real MP3 tracks (Sunflower, Him & I, A Thousand Years, Sailor Song, The Lazy Song).
-- Animated equalizer visualizer bars.
-- Full playlist selector, seek bar, volume control, and auto-resume on unlock.`
+      id: "kjei-hostel-tracker",
+      name: "KJEI Hostel Complaint Tracker",
+      tagline: "Online complaint management system for K.J. Educational Institutes.",
+      description: "A web application built for students at K.J. Educational Institutes (KJEI) to easily submit, track, and resolve hostel-related complaints online, replacing manual paper logs with a streamlined digital system.",
+      tags: ["HTML5", "CSS3", "JavaScript", "Web App"],
+      github: "https://github.com/AdarshBhande/KJEI_HOSTEL_COMPLAINT_TRACKER",
+      demo: "https://github.com/AdarshBhande/KJEI_HOSTEL_COMPLAINT_TRACKER",
+      readme: `# KJEI Hostel Complaint Tracker
+- Replaces traditional paper complaint books with an online tracking dashboard.
+- Student authentication and complaint submission form.
+- Real-time status update tracking for hostel management.`
     },
     {
-      id: "retro-games",
-      name: "Retro Games Suite (Minesweeper & Solitaire)",
-      tagline: "Full playable 9x9 Minesweeper & Klondike Solitaire engines.",
-      description: "Fully interactive browser implementations of classic desktop games. Features 9x9 Minesweeper with first-click safety, digital timer/mine counter, and Klondike Solitaire card game with stock deck and foundation piles.",
-      tags: ["JavaScript ES6+", "State Machines", "Game Logic", "CSS Grid"],
-      github: "https://github.com/AdarshBhande/portfolio",
-      demo: "https://adarshbhande.github.io/portfolio/",
-      readme: `# Retro Games Suite
-- 9x9 Minesweeper with 10 mines, first-click safety, right-click/touch flagging, digital timer, and smiley face reset.
-- Klondike Solitaire with draw pile, 4 foundation slots, 7 tableau columns, score tracker, and move counter.`
+      id: "pragati-self-dev",
+      name: "PRAGATI — Personal Progress Platform",
+      tagline: "Goal setting and habit tracking web application.",
+      description: "PRAGATI (named after the Hindi word for 'progress') is a personal development web platform designed to help users set goals, track daily habits, and transform ambitions into achievements.",
+      tags: ["HTML5", "CSS3", "JavaScript", "Web App"],
+      github: "https://github.com/AdarshBhande/PRAGATI-SELF-DEVELOPMENT-",
+      demo: "https://github.com/AdarshBhande/PRAGATI-SELF-DEVELOPMENT-",
+      readme: `# PRAGATI — Self Development Platform
+- Goal tracking dashboard and milestone planner.
+- Interactive habit building interface.
+- Personal progress analytics.`
     },
     {
-      id: "paint-guestbook",
-      name: "MS Paint & Real-Time Cloud Guest Book",
-      tagline: "HTML5 Canvas drawing board & Supabase real-time visitor database.",
-      description: "Includes an interactive HTML5 Canvas drawing board with custom colors, brush size slider, eraser, and PNG download, alongside a real-time visitor feedback Guest Book powered by a Supabase PostgreSQL cloud database.",
-      tags: ["HTML5 Canvas", "Supabase PostgreSQL", "Real-Time Subscriptions", "PNG Export"],
-      github: "https://github.com/AdarshBhande/portfolio",
-      demo: "https://adarshbhande.github.io/portfolio/",
-      readme: `# MS Paint & Real-Time Cloud Guest Book
-- MS Paint freehand drawing canvas with color swatches, brush size slider, eraser, and PNG export.
-- Real-time Visitor Guest Book connected directly to Supabase cloud database with live websocket subscriptions.`
+      id: "msmv-escorp",
+      name: "Escorp Industries Customer Portal",
+      tagline: "Web portal for Escorp Industries customer management.",
+      description: "Custom web platform built for customers of Escorp Industries to explore product catalogs, submit service inquiries, and view company updates.",
+      tags: ["HTML5", "CSS3", "JavaScript"],
+      github: "https://github.com/AdarshBhande/MSMV_PROJECT",
+      demo: "https://github.com/AdarshBhande/MSMV_PROJECT",
+      readme: `# Escorp Industries Customer Portal
+- Product showcase and service catalog.
+- Customer contact and inquiry submission.
+- Responsive layout designed for desktop and mobile devices.`
+    },
+    {
+      id: "nss-tcoer",
+      name: "NSS TCOER Student Chapter Portal",
+      tagline: "National Service Scheme portal for TCOER student community.",
+      description: "Community web portal for the National Service Scheme (NSS) chapter at TCOER to coordinate social service drives, student volunteer registrations, and community initiative updates.",
+      tags: ["HTML5", "CSS3", "JavaScript"],
+      github: "https://github.com/AdarshBhande/NSS-TCOER-",
+      demo: "https://github.com/AdarshBhande/NSS-TCOER-",
+      readme: `# NSS TCOER Student Chapter Portal
+- Social initiative event announcements and volunteer signup forms.
+- Community gallery showcasing NSS outreach programs.`
     }
   ],
+
 
 
   // Simulating the virtual filesystem in memory
