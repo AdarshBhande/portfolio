@@ -51,63 +51,59 @@ export const portfolioData = {
 
   projects: [
     {
-      id: "phase-1",
-      name: "Portfolio Phase 1: Core Shell & Desktop",
-      tagline: "The base dual-surface OS environment.",
-      description: "Features a CLI terminal parser with autocomplete, history buffers, and mobile command chips alongside a classic grid-icon OS desktop. Users can browse the terminal or click icons to open panels.",
-      tags: ["React", "ViteJS", "Vanilla CSS", "Google Fonts"],
+      id: "spidey-os",
+      name: "Spidey OS — Interactive Web Operating System",
+      tagline: "Dual-surface CLI terminal and Windows 11 desktop environment.",
+      description: "A full dual-surface operating system portfolio featuring an interactive CLI terminal parser, desktop window manager, playable retro games (Minesweeper & Solitaire), MS Paint drawing board with PNG download, and real-time Guest Book powered by Supabase.",
+      tags: ["React", "ViteJS", "Supabase", "Vanilla CSS", "Google Fonts"],
       github: "https://github.com/AdarshBhande/portfolio",
       demo: "https://adarshbhande.github.io/portfolio/",
-      readme: `# Phase 1: Core Shell & Desktop
-- Implements the foundational command-line interface with parsed commands (ls, cd, cat, theme).
-- Designed with standard OS dock clock, taskbar tabs, and desktop grids.
-- Complete keyboard history memory (Up/Down arrow key) and auto-tab completion.
-- Features dual-view synchronization: terminal updates reflect on desktop widgets.`
+      readme: `# Spidey OS — Interactive Web Operating System
+- Dual-surface CLI terminal and modern Windows 11 desktop experience.
+- Groove Music Player auto-playing Sunflower (Spider-Verse) with lock screen pause/resume lifecycle.
+- Full suite of retro desktop games: 9x9 Minesweeper with flagging & Klondike Solitaire card game.
+- MS Paint freehand drawing canvas with color swatches and PNG image export.
+- Real-time Visitor Guest Book connected directly to Supabase cloud database.`
     },
     {
-      id: "phase-2",
-      name: "Portfolio Phase 2: Lock Screen & Hack Event",
-      tagline: "Scripted security glitch sequence.",
-      description: "Adds a simulated OS lock screen that requires a cosmetic login, leading to a temporary desktop before a playful 'glitch override' terminal pops up with digital rain text overlays.",
-      tags: ["CSS Animations", "React Hooks", "SVG Glitch Effect"],
+      id: "groove-music",
+      name: "Groove Music — Browser Audio Suite",
+      tagline: "Background audio player with equalizer visualizers & playlist control.",
+      description: "Features background MP3 audio playback auto-starting Sunflower with full playlist controls, dynamic equalizer visualizers, volume slider, seek bar, and state preservation across lock screen transitions.",
+      tags: ["React Hooks", "HTML5 Audio API", "CSS Animations", "Web Audio"],
       github: "https://github.com/AdarshBhande/portfolio",
       demo: "https://adarshbhande.github.io/portfolio/",
-      readme: `# Phase 2: Lock Screen & Hack Event
-- Simulated operating system sign-in form.
-- Digital clock and greeting message tailored to user local times.
-- Scripted hack overlay animation playing warning console texts to create a playful narrative hook.
-- Auto-spawns the Phase 1 terminal upon resolving.`
+      readme: `# Groove Music — Browser Audio Suite
+- 5 real MP3 tracks (Sunflower, Him & I, A Thousand Years, Sailor Song, The Lazy Song).
+- Animated equalizer visualizer bars.
+- Full playlist selector, seek bar, volume control, and auto-resume on unlock.`
     },
     {
-      id: "phase-3",
-      name: "Portfolio Phase 3: Interactive Room & Music Player",
-      tagline: "First-person perspective landing space & background music.",
-      description: "Displays a first-person room view with clickable laptop monitor zoom. Features a background Music Player app auto-starting Sunflower (Spider-Verse) with pause/resume state preservation.",
-      tags: ["2D SVG Layout", "Camera Transitions", "HTML5 Audio API", "Groove Music UI"],
+      id: "retro-games",
+      name: "Retro Games Suite (Minesweeper & Solitaire)",
+      tagline: "Full playable 9x9 Minesweeper & Klondike Solitaire engines.",
+      description: "Fully interactive browser implementations of classic desktop games. Features 9x9 Minesweeper with first-click safety, digital timer/mine counter, and Klondike Solitaire card game with stock deck and foundation piles.",
+      tags: ["JavaScript ES6+", "State Machines", "Game Logic", "CSS Grid"],
       github: "https://github.com/AdarshBhande/portfolio",
       demo: "https://adarshbhande.github.io/portfolio/",
-      readme: `# Phase 3: Interactive Room & Music Player
-- Implements a stylized bedroom/office scene featuring desks, shelves, and interactive elements.
-- Pins the resume banner as a clickable physical room object (like a wall poster).
-- Uses CSS transforms to transition the viewport smoothly from the room perspective directly into the computer screen bootloader.
-- Integrated background Music Player app with 5 real MP3 tracks and lock/logout pause-resume lifecycle.`
+      readme: `# Retro Games Suite
+- 9x9 Minesweeper with 10 mines, first-click safety, right-click/touch flagging, digital timer, and smiley face reset.
+- Klondike Solitaire with draw pile, 4 foundation slots, 7 tableau columns, score tracker, and move counter.`
     },
     {
-      id: "phase-4",
-      name: "Portfolio Phase 4: Interactive Apps & Games Suite",
-      tagline: "Minesweeper, Solitaire, MS Paint, Guest Book, and Photoshop Gallery.",
-      description: "Full suite of interactive desktop applications including Minesweeper (9x9 grid), Klondike Solitaire card game, MS Paint canvas drawing board with PNG download, Guest Book with localStorage, and Photoshop Showcase.",
-      tags: ["HTML5 Canvas", "State Machines", "LocalStorage", "React Window Manager"],
+      id: "paint-guestbook",
+      name: "MS Paint & Real-Time Cloud Guest Book",
+      tagline: "HTML5 Canvas drawing board & Supabase real-time visitor database.",
+      description: "Includes an interactive HTML5 Canvas drawing board with custom colors, brush size slider, eraser, and PNG download, alongside a real-time visitor feedback Guest Book powered by a Supabase PostgreSQL cloud database.",
+      tags: ["HTML5 Canvas", "Supabase PostgreSQL", "Real-Time Subscriptions", "PNG Export"],
       github: "https://github.com/AdarshBhande/portfolio",
       demo: "https://adarshbhande.github.io/portfolio/",
-      readme: `# Phase 4: Interactive Apps & Games Suite
-- Playable 9x9 Minesweeper game engine with mine counter, game timer, flags, and smiley face reset.
-- Playable Klondike Solitaire card game with stock deck, tableau columns, and move tracker.
-- MS Paint freehand drawing board with brush size slider, color palette, eraser, and PNG download.
-- Visitor Guest Book with comment feed saved in localStorage so notes stay preserved between reloads.
-- Photoshop Creative Works gallery with category filters and lightbox image zoom.`
+      readme: `# MS Paint & Real-Time Cloud Guest Book
+- MS Paint freehand drawing canvas with color swatches, brush size slider, eraser, and PNG export.
+- Real-time Visitor Guest Book connected directly to Supabase cloud database with live websocket subscriptions.`
     }
   ],
+
 
   // Simulating the virtual filesystem in memory
   fileSystem: {

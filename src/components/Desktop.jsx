@@ -418,7 +418,7 @@ Features built into this environment:
       {/* PROJECTS WINDOW */}
       {activeWindows.projects && (
         <WindowFrame 
-          title="Portfolio Project Phases" 
+          title="Dev Projects & Applications" 
           icon="📁"
           onClose={() => toggleWindow('projects', false)}
           onMinimize={() => onMinimizeWindow('projects')}
@@ -427,9 +427,10 @@ Features built into this environment:
           isMinimized={minimizedWindows.projects}
         >
           <div className="modal-header">
-            <h2 className="modal-title">Interactive Portfolio Project</h2>
-            <div className="modal-subtitle">One Unified Showcase, Crafted and Built in Stages</div>
+            <h2 className="modal-title">Featured Developer Projects</h2>
+            <div className="modal-subtitle">Interactive web applications, browser games, & software engineering projects by Adarsh Bhande</div>
           </div>
+
           <div className="modal-body">
             <div className="projects-grid">
               {projectsList.map((proj) => (
