@@ -119,9 +119,9 @@ function App() {
   // Handle swipe unlock
   const handleUnlock = () => {
     setIsLocked(false);
-    // Auto-launch Music Player startup app and start playing Sunflower
+    // Auto-launch Music Player startup app in MINIMIZED state and start playing Sunflower
     setActiveWindows(prev => ({ ...prev, music: true }));
-    setMinimizedWindows(prev => ({ ...prev, music: false }));
+    setMinimizedWindows(prev => ({ ...prev, music: true }));
     setIsPlayingMusic(true);
   };
 
