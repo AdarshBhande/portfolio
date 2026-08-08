@@ -8,6 +8,8 @@ import Solitaire from './Solitaire';
 import PaintApp from './PaintApp';
 import GuestBook from './GuestBook';
 import PhotoshopGallery from './PhotoshopGallery';
+import { supabase, isSupabaseConfigured } from '../lib/supabaseClient';
+
 
 const Desktop = ({ 
   activeWindows, 
@@ -33,9 +35,42 @@ const Desktop = ({
   const [showStartMenu, setShowStartMenu] = useState(false);
   const [searchQuery, setSearchQuery] = useState('');
   const [currentDateStr, setCurrentDateStr] = useState('');
-  
+  const [projectsList, setProjectsList] = useState(portfolioData.projects);
+
   const startMenuRef = useRef(null);
   const startButtonRef = useRef(null);
+
+  // Fetch live projects from Supabase database if available
+  useEffect(() => {
+    const fetchSupabaseProjects = async () => {
+      if (isSupabaseConfigured && supabase) {
+        try {
+          const { data, error } = await supabase
+            .from('projects')
+            .select('*')
+            .order('created_at', { ascending: false });
+
+          if (!error && data && data.length > 0) {
+            setProjectsList(data.map(p => ({
+              id: p.id,
+              name: p.name,
+              tagline: p.tagline,
+              description: p.description,
+              tags: Array.isArray(p.tags) ? p.tags : (p.tags ? p.tags.split(',') : []),
+              github: p.github || portfolioData.personalInfo.github,
+              demo: p.demo || '#',
+              readme: p.readme || ''
+            })));
+          }
+        } catch (err) {
+          console.error('Error fetching projects from Supabase:', err);
+        }
+      }
+    };
+
+    fetchSupabaseProjects();
+  }, []);
+
 
   // Update clock and date every second
   useEffect(() => {
@@ -397,11 +432,11 @@ Features built into this environment:
           </div>
           <div className="modal-body">
             <div className="projects-grid">
-              {portfolioData.projects.map((proj) => (
+              {projectsList.map((proj) => (
                 <div key={proj.id} className="project-card" id={`project-${proj.id}`}>
                   <div className="project-card-header">
                     <h3 className="project-name">{proj.name}</h3>
-                    <span className="project-phase-badge">{proj.id.toUpperCase()}</span>
+                    <span className="project-phase-badge">{String(proj.id).toUpperCase()}</span>
                   </div>
                   <p className="project-tagline">{proj.tagline}</p>
                   <p className="project-desc">{proj.description}</p>
@@ -433,6 +468,7 @@ Features built into this environment:
               ))}
             </div>
           </div>
+
         </WindowFrame>
       )}
 
