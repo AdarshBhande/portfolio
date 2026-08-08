@@ -35,7 +35,12 @@ function App() {
     skills: false,
     contact: false,
     terminal: false,
-    music: false
+    music: false,
+    minesweeper: false,
+    solitaire: false,
+    paint: false,
+    guestbook: false,
+    photoshop: false
   });
 
   // Track if windows are minimized
@@ -45,7 +50,12 @@ function App() {
     skills: false,
     contact: false,
     terminal: false,
-    music: false
+    music: false,
+    minesweeper: false,
+    solitaire: false,
+    paint: false,
+    guestbook: false,
+    photoshop: false
   });
 
   // Track if windows are maximized (covering workspace)
@@ -55,7 +65,12 @@ function App() {
     skills: false,
     contact: false,
     terminal: false,
-    music: false
+    music: false,
+    minesweeper: false,
+    solitaire: false,
+    paint: false,
+    guestbook: false,
+    photoshop: false
   });
 
   // Apply light/dark theme global variables

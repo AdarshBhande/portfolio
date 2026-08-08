@@ -3,6 +3,11 @@ import { portfolioData } from '../data/portfolioData';
 import WindowFrame from './WindowFrame';
 import Terminal from './Terminal';
 import MusicPlayer from './MusicPlayer';
+import Minesweeper from './Minesweeper';
+import Solitaire from './Solitaire';
+import PaintApp from './PaintApp';
+import GuestBook from './GuestBook';
+import PhotoshopGallery from './PhotoshopGallery';
 
 const Desktop = ({ 
   activeWindows, 
@@ -76,12 +81,12 @@ const Desktop = ({
   // Desktop screen icons
   const desktopIcons = [
     // Column 1 (Leftmost column)
-    { id: 'photoshop', label: 'Photoshop Works', icon: '🎨', type: 'mock', message: 'Starting Photoshop 7.0... Loading layers...' },
-    { id: 'video-editing', label: 'Video Editing', icon: '🎬', type: 'mock', message: 'Opening Premiere Pro... Project: Bhande_Showreel.prproj' },
-    { id: '3d', label: '3D Render', icon: '🧊', type: 'mock', message: 'Launching Blender 3.0... Rendering viewport...' },
-    { id: 'ui-ux', label: 'UI/UX Design', icon: '📐', type: 'mock', message: 'Launching Figma Desktop Agent... Syncing draft files...' },
+    { id: 'photoshop', label: 'Photoshop Works', icon: '🎨', type: 'window', windowName: 'photoshop' },
+    { id: 'paint', label: 'MS Paint', icon: '🖌️', type: 'window', windowName: 'paint' },
+    { id: 'minesweeper', label: 'Minesweeper', icon: '💣', type: 'window', windowName: 'minesweeper' },
+    { id: 'solitaire', label: 'Solitaire', icon: '🃏', type: 'window', windowName: 'solitaire' },
     { id: 'projects', label: 'Dev Projects', icon: '📁', type: 'window', windowName: 'projects' },
-    { id: 'illustrations', label: 'Illustrations', icon: '✏️', type: 'mock', message: 'Opening Vector Drawing board... Workspace loaded.' },
+    { id: 'guestbook', label: 'Guest Book', icon: '📒', type: 'window', windowName: 'guestbook' },
     { id: 'instagram', label: 'Instagram', icon: '📸', type: 'link', url: 'https://instagram.com/adarshbhande-mock' },
     
     // Column 2 (Middle column)
@@ -96,12 +101,9 @@ const Desktop = ({
     
     // Column 3 (Right column)
     { id: 'readme', label: 'README.txt', icon: '📝', type: 'readme' },
-    { id: 'paint', label: 'MS Paint', icon: '🖌️', type: 'mock', message: 'Opening MS Paint... Canvas initialized. Draw your ideas!' },
-    { id: 'minesweeper', label: 'Minesweeper', icon: '💣', type: 'mock', message: 'Minesweeper.exe loaded. Be careful where you click! 💣' },
-    { id: 'solitaire', label: 'Solitaire', icon: '🃏', type: 'mock', message: 'Solitaire: Shuffling cards...' },
-    { id: 'guestbook', label: 'Guest Book', icon: '📒', type: 'mock', message: 'Connecting to database... Guest book feedback entries loaded.' },
     { id: 'achievements', label: 'Achievements', icon: '🏆', type: 'window', windowName: 'skills' }
   ];
+
 
   // Windows 11 Start Menu Pinned items
   const w11PinnedApps = [
@@ -111,14 +113,15 @@ const Desktop = ({
     { id: 'skills', label: 'Skills', icon: '🏆', type: 'window', windowName: 'skills' },
     { id: 'contact', label: 'Contact', icon: '📞', type: 'window', windowName: 'contact' },
     { id: 'terminal', label: 'cmd.exe', icon: '💻', type: 'terminal' },
-    { id: 'readme', label: 'README.txt', icon: '📝', type: 'readme' },
-    { id: 'paint', label: 'MS Paint', icon: '🖌️', type: 'mock', message: 'Opening MS Paint... Drawing board initialized!' },
-    { id: 'minesweeper', label: 'Minesweeper', icon: '💣', type: 'mock', message: 'Minesweeper loaded. Avoid the bombs!' },
-    { id: 'solitaire', label: 'Solitaire', icon: '🃏', type: 'mock', message: 'Starting Solitaire... dealing cards.' },
+    { id: 'photoshop', label: 'Photoshop Works', icon: '🎨', type: 'window', windowName: 'photoshop' },
+    { id: 'paint', label: 'MS Paint', icon: '🖌️', type: 'window', windowName: 'paint' },
+    { id: 'minesweeper', label: 'Minesweeper', icon: '💣', type: 'window', windowName: 'minesweeper' },
+    { id: 'solitaire', label: 'Solitaire', icon: '🃏', type: 'window', windowName: 'solitaire' },
+    { id: 'guestbook', label: 'Guest Book', icon: '📒', type: 'window', windowName: 'guestbook' },
     { id: 'music', label: 'Music Player', icon: '🎵', type: 'window', windowName: 'music' },
-    { id: 'internet', label: 'Explorer', icon: '🌐', type: 'link', url: 'https://google.com' },
     { id: 'github', label: 'GitHub', icon: '🐙', type: 'link', url: portfolioData.personalInfo.github }
   ];
+
 
   // Windows 11 Start Menu Recommended files
   const w11RecommendedFiles = [
@@ -534,6 +537,82 @@ const Desktop = ({
         </WindowFrame>
       )}
 
+      {/* MINESWEEPER GAME WINDOW */}
+      {activeWindows.minesweeper && (
+        <WindowFrame
+          title="Minesweeper"
+          icon="💣"
+          onClose={() => toggleWindow('minesweeper', false)}
+          onMinimize={() => onMinimizeWindow('minesweeper')}
+          onMaximize={() => onMaximizeWindow('minesweeper')}
+          isMinimized={minimizedWindows.minesweeper}
+          isMaximized={maximizedWindows.minesweeper}
+        >
+          <Minesweeper />
+        </WindowFrame>
+      )}
+
+      {/* SOLITAIRE CARD GAME WINDOW */}
+      {activeWindows.solitaire && (
+        <WindowFrame
+          title="Solitaire"
+          icon="🃏"
+          onClose={() => toggleWindow('solitaire', false)}
+          onMinimize={() => onMinimizeWindow('solitaire')}
+          onMaximize={() => onMaximizeWindow('solitaire')}
+          isMinimized={minimizedWindows.solitaire}
+          isMaximized={maximizedWindows.solitaire}
+        >
+          <Solitaire />
+        </WindowFrame>
+      )}
+
+      {/* MS PAINT DRAWING WINDOW */}
+      {activeWindows.paint && (
+        <WindowFrame
+          title="MS Paint — Canvas"
+          icon="🖌️"
+          onClose={() => toggleWindow('paint', false)}
+          onMinimize={() => onMinimizeWindow('paint')}
+          onMaximize={() => onMaximizeWindow('paint')}
+          isMinimized={minimizedWindows.paint}
+          isMaximized={maximizedWindows.paint}
+        >
+          <PaintApp />
+        </WindowFrame>
+      )}
+
+      {/* GUEST BOOK WINDOW */}
+      {activeWindows.guestbook && (
+        <WindowFrame
+          title="Visitor Guest Book"
+          icon="📒"
+          onClose={() => toggleWindow('guestbook', false)}
+          onMinimize={() => onMinimizeWindow('guestbook')}
+          onMaximize={() => onMaximizeWindow('guestbook')}
+          isMinimized={minimizedWindows.guestbook}
+          isMaximized={maximizedWindows.guestbook}
+        >
+          <GuestBook />
+        </WindowFrame>
+      )}
+
+      {/* PHOTOSHOP CREATIVE GALLERY WINDOW */}
+      {activeWindows.photoshop && (
+        <WindowFrame
+          title="Photoshop & Design Showcase"
+          icon="🎨"
+          onClose={() => toggleWindow('photoshop', false)}
+          onMinimize={() => onMinimizeWindow('photoshop')}
+          onMaximize={() => onMaximizeWindow('photoshop')}
+          isMinimized={minimizedWindows.photoshop}
+          isMaximized={maximizedWindows.photoshop}
+        >
+          <PhotoshopGallery />
+        </WindowFrame>
+      )}
+
+
       {/* MOCK APPLICATION NOTEPAD/WINDOWS */}
       {openApp && (
         <WindowFrame
@@ -646,6 +725,62 @@ const Desktop = ({
             <span className="w11-taskbar-icon">🎵</span>
             <div className="w11-taskbar-indicator"></div>
           </button>
+
+          {/* Minesweeper Tab */}
+          <button 
+            className={`w11-taskbar-btn ${isTabActive('minesweeper') ? 'active' : ''}`}
+            onClick={() => onTaskbarClick('minesweeper')}
+            title="Minesweeper"
+            style={{ display: activeWindows.minesweeper ? 'flex' : 'none' }}
+          >
+            <span className="w11-taskbar-icon">💣</span>
+            <div className="w11-taskbar-indicator"></div>
+          </button>
+
+          {/* Solitaire Tab */}
+          <button 
+            className={`w11-taskbar-btn ${isTabActive('solitaire') ? 'active' : ''}`}
+            onClick={() => onTaskbarClick('solitaire')}
+            title="Solitaire"
+            style={{ display: activeWindows.solitaire ? 'flex' : 'none' }}
+          >
+            <span className="w11-taskbar-icon">🃏</span>
+            <div className="w11-taskbar-indicator"></div>
+          </button>
+
+          {/* MS Paint Tab */}
+          <button 
+            className={`w11-taskbar-btn ${isTabActive('paint') ? 'active' : ''}`}
+            onClick={() => onTaskbarClick('paint')}
+            title="MS Paint"
+            style={{ display: activeWindows.paint ? 'flex' : 'none' }}
+          >
+            <span className="w11-taskbar-icon">🖌️</span>
+            <div className="w11-taskbar-indicator"></div>
+          </button>
+
+          {/* Guest Book Tab */}
+          <button 
+            className={`w11-taskbar-btn ${isTabActive('guestbook') ? 'active' : ''}`}
+            onClick={() => onTaskbarClick('guestbook')}
+            title="Guest Book"
+            style={{ display: activeWindows.guestbook ? 'flex' : 'none' }}
+          >
+            <span className="w11-taskbar-icon">📒</span>
+            <div className="w11-taskbar-indicator"></div>
+          </button>
+
+          {/* Photoshop Works Tab */}
+          <button 
+            className={`w11-taskbar-btn ${isTabActive('photoshop') ? 'active' : ''}`}
+            onClick={() => onTaskbarClick('photoshop')}
+            title="Photoshop Works"
+            style={{ display: activeWindows.photoshop ? 'flex' : 'none' }}
+          >
+            <span className="w11-taskbar-icon">🎨</span>
+            <div className="w11-taskbar-indicator"></div>
+          </button>
+
 
           {/* Mock open document Notepad viewer tab */}
           {openApp && (
