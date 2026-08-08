@@ -3,22 +3,8 @@ import { supabase, isSupabaseConfigured } from '../lib/supabaseClient';
 
 const EMOJI_OPTIONS = ['🚀', '💻', '🎨', '🔥', '🕷️', '⭐', '🎧', '⚡'];
 
-const INITIAL_ENTRIES = [
-  {
-    id: 1,
-    name: 'Peter Parker',
-    avatar: '🕷️',
-    message: 'Awesome portfolio OS! Love the Sunflower music player and Solitaire card game!',
-    date: '2026-08-08 19:45'
-  },
-  {
-    id: 2,
-    name: 'Miles Morales',
-    avatar: '🎨',
-    message: 'Great aesthetic and Spider-Man wallpaper selection. Keep building!',
-    date: '2026-08-08 18:30'
-  }
-];
+const INITIAL_ENTRIES = [];
+
 
 const GuestBook = () => {
   const [entries, setEntries] = useState([]);
