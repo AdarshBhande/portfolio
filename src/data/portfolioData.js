@@ -4,11 +4,11 @@ export const portfolioData = {
     role: "Creative Developer",
     location: "India",
     username: "adarsh@bhande-os",
-    email: "adarsh.bhande@mockmail.com",
-    github: "https://github.com/adarshbhande-mock",
-    linkedin: "https://linkedin.com/in/adarshbhande-mock",
-    twitter: "https://twitter.com/adarshbhande_mock",
-    resumeUrl: "#", // Placeholder link
+    email: "bhandeadarsh2006@gmail.com",
+    github: "https://github.com/AdarshBhande",
+    linkedin: "https://www.linkedin.com/in/adarsh-bhande",
+    twitter: null,
+    resumeUrl: "https://drive.google.com/file/d/1IJus1mJqHD_NWEA6GaVHiV7WHQQ125D4/view?usp=sharing",
     bio: [
       "I am a passionate Creative Developer based in India, currently pursuing my software engineering studies in Information Technology. I am driven by the intersection of solid engineering principles and expressive, interactive design.",
       "My goal is to construct digital interfaces that feel alive, responsive, and memorable. Rather than building static text-based sites, I enjoy coding web experiences, simulated operating systems, and interactive canvas components.",
@@ -55,7 +55,7 @@ export const portfolioData = {
       tagline: "The base dual-surface OS environment.",
       description: "Features a CLI terminal parser with autocomplete, history buffers, and mobile command chips alongside a classic grid-icon OS desktop. Users can browse the terminal or click icons to open panels.",
       tags: ["React", "ViteJS", "Vanilla CSS", "Google Fonts"],
-      github: "https://github.com/adarshbhande-mock/portfolio-core",
+      github: "https://github.com/AdarshBhande/portfolio",
       demo: "https://portfolio-two-gray-37.vercel.app/",
       readme: `# Phase 1: Core Shell & Desktop
 - Implements the foundational command-line interface with parsed commands (ls, cd, cat, theme).
@@ -69,7 +69,7 @@ export const portfolioData = {
       tagline: "Scripted security glitch sequence.",
       description: "Adds a simulated OS lock screen that requires a cosmetic login, leading to a temporary desktop before a playful 'glitch override' terminal pops up with digital rain text overlays.",
       tags: ["CSS Animations", "React Hooks", "SVG Glitch Effect"],
-      github: "https://github.com/adarshbhande-mock/portfolio-glitch",
+      github: "https://github.com/AdarshBhande/portfolio",
       demo: "https://debuuuuu-potfolio.vercel.app/",
       readme: `# Phase 2: Lock Screen & Hack Event
 - Simulated operating system sign-in form (cosmetic only, no actual login needed).
@@ -83,7 +83,7 @@ export const portfolioData = {
       tagline: "First-person perspective landing space.",
       description: "Displays a first-person room view (flat vector/pixel art) with clickable components. Clicking the computer monitor zooms the camera in to trigger Phase 2's boot sequence.",
       tags: ["2D SVG Layout", "Camera Transitions", "Web Audio API"],
-      github: "https://github.com/adarshbhande-mock/portfolio-room",
+      github: "https://github.com/AdarshBhande/portfolio",
       demo: "#",
       readme: `# Phase 3: Interactive Room Scene
 - Implements a stylized bedroom/office scene featuring desks, shelves, and interactive elements.
@@ -96,7 +96,7 @@ export const portfolioData = {
       tagline: "Optimization, accessibility, and session control.",
       description: "Polishes responsive viewports, introduces session storage to remember skipping intro animations, respects user prefers-reduced-motion, and completes deployments.",
       tags: ["Accessibility (a11y)", "Session State", "Production Build"],
-      github: "https://github.com/adarshbhande-mock/portfolio-finished",
+      github: "https://github.com/AdarshBhande/portfolio",
       demo: "#",
       readme: `# Phase 4: Polish & Deployment
 - Integrates session caching to remember whether a user has watched the intro, saving repeat visitors time.
@@ -114,7 +114,7 @@ Use 'theme light' or 'theme dark' to switch visual styles.`,
     
     "skills.json": `{\n  "programming_languages": ["JavaScript", "TypeScript", "C++", "Java", "HTML/CSS"],\n  "frameworks": ["React", "Next.js", "Vite"],\n  "tools": ["Git", "npm", "Vercel", "Docker"]\n}`,
     
-    "contact.txt": `Email: adarsh.bhande@mockmail.com\nGitHub: https://github.com/adarshbhande-mock\nLinkedIn: https://linkedin.com/in/adarshbhande-mock\nTwitter: https://twitter.com/adarshbhande_mock`,
+    "contact.txt": `Email: bhandeadarsh2006@gmail.com\nGitHub: https://github.com/AdarshBhande\nLinkedIn: https://www.linkedin.com/in/adarsh-bhande\nResume: https://drive.google.com/file/d/1IJus1mJqHD_NWEA6GaVHiV7WHQQ125D4/view?usp=sharing`,
     
     "projects": {
       "phase-1.md": `# Phase 1: Core Shell & Desktop\nCore terminal and desktop views. Status: Active`,

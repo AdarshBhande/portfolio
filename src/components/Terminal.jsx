@@ -246,8 +246,12 @@ const Terminal = ({ activeTheme, setActiveTheme, onClose }) => {
         break;
 
       case 'resume':
-        newHistory.push({ text: '[system] retrieving resume download document...', type: 'success' });
-        alert("Resume download triggered! (Mock PDF Placement)");
+        newHistory.push({ text: '[system] opening resume document in new tab...', type: 'success' });
+        if (portfolioData.personalInfo.resumeUrl && portfolioData.personalInfo.resumeUrl !== '#') {
+          window.open(portfolioData.personalInfo.resumeUrl, '_blank');
+        } else {
+          newHistory.push({ text: '[error] resume URL is not configured.', type: 'error' });
+        }
         break;
 
       case 'contact':

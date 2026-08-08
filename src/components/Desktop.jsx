@@ -78,6 +78,7 @@ const Desktop = ({
     { id: 'instagram', label: 'Instagram', icon: '📸', type: 'link', url: 'https://instagram.com/adarshbhande-mock' },
     
     // Column 2 (Middle column)
+    { id: 'resume', label: 'Resume.pdf', icon: '📄', type: 'link', url: portfolioData.personalInfo.resumeUrl },
     { id: 'github', label: 'GitHub', icon: '🐙', type: 'link', url: portfolioData.personalInfo.github },
     { id: 'about', label: 'About Me', icon: '👤', type: 'window', windowName: 'about' },
     { id: 'contact', label: 'Contact', icon: '📞', type: 'window', windowName: 'contact' },
@@ -97,6 +98,7 @@ const Desktop = ({
 
   // Windows 11 Start Menu Pinned items
   const w11PinnedApps = [
+    { id: 'resume', label: 'Resume.pdf', icon: '📄', type: 'link', url: portfolioData.personalInfo.resumeUrl },
     { id: 'about', label: 'About Me', icon: '👤', type: 'window', windowName: 'about' },
     { id: 'projects', label: 'Projects', icon: '📁', type: 'window', windowName: 'projects' },
     { id: 'skills', label: 'Skills', icon: '🏆', type: 'window', windowName: 'skills' },

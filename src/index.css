@@ -1,4 +1,4 @@
-@import url('https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;500;700&family=Space+Grotesk:wght@400;500;600;700&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;500;700&family=Press+Start+2P&family=Space+Grotesk:wght@400;500;600;700&display=swap');
 
 /* Color Variables and Design Tokens */
 :root {
@@ -134,8 +134,8 @@ html, body, #root {
   width: 100vw;
   height: 100vh;
   position: relative;
-  /* Premium background using your sunset cat wallpaper sunset-cat-wallpaper.jpg */
-  background: linear-gradient(rgba(10, 8, 15, 0.15), rgba(10, 8, 15, 0.35)), url('/images/sunset-cat-wallpaper.jpg') no-repeat center center;
+  /* Desktop wallpaper - Miles Morales Spider-Man */
+  background: url('/images/desktop-wallpaper-new.jpeg') no-repeat center center;
   background-size: cover;
   overflow: hidden;
   display: flex;
@@ -1669,7 +1669,7 @@ html, body, #root {
 }
 
 /* ═══════════════════════════════════════════════════════════════
-   INTRO LOADER — GIF Loading Screen
+   INTRO LOADER — Retro Pixel Loading Screen
    ═══════════════════════════════════════════════════════════════ */
 
 .intro-loader-container {
@@ -1680,44 +1680,97 @@ html, body, #root {
   height: 100vh;
   background: #000000;
   display: flex;
-  flex-direction: column;
   align-items: center;
   justify-content: center;
   z-index: 1000000;
   overflow: hidden;
   user-select: none;
   opacity: 1;
-  transition: opacity 0.8s ease-out;
+  transition: opacity 0.9s ease-out;
 }
 
-/* Smooth fade out */
 .intro-loader-container.fading {
   opacity: 0;
 }
 
-/* Hidden after fade completes */
 .intro-loader-container.complete {
   opacity: 0;
   pointer-events: none;
   visibility: hidden;
 }
 
-/* Centered GIF container - lighter size */
-.loader-gif-wrapper {
-  position: absolute;
-  width: min(18vw, 120px);
-  height: min(18vw, 120px);
+/* Stacked: GIF on top, retro bar below */
+.loader-inner {
   display: flex;
+  flex-direction: column;
   align-items: center;
-  justify-content: center;
-  z-index: 1000003;
+  gap: 24px;
   pointer-events: none;
 }
 
 .loader-gif-img {
-  width: 100%;
-  height: 100%;
+  width: min(18vw, 120px);
+  height: min(18vw, 120px);
   object-fit: contain;
   image-rendering: pixelated;
-  filter: drop-shadow(0 4px 15px rgba(0, 0, 0, 0.9));
+}
+
+/* Retro loading widget */
+.retro-loader {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 6px;
+}
+
+/* "LOADING ..." text */
+.retro-loading-text {
+  font-family: 'Press Start 2P', 'Courier New', monospace;
+  font-size: clamp(8px, 1.2vw, 12px);
+  color: #ffffff;
+  letter-spacing: 2px;
+  image-rendering: pixelated;
+}
+
+/* Outer bar container — rectangle with pixel border */
+.retro-bar-outer {
+  display: flex;
+  align-items: center;
+  gap: 0;
+  border: 2px solid #ffffff;
+  padding: 3px 4px;
+  background: #000000;
+  width: min(52vw, 340px);
+  box-sizing: border-box;
+  image-rendering: pixelated;
+}
+
+/* End cap squares */
+.retro-cap {
+  font-size: clamp(8px, 1.2vw, 11px);
+  color: #ffffff;
+  line-height: 1;
+  flex-shrink: 0;
+}
+
+/* Inner block track */
+.retro-bar-inner {
+  flex: 1;
+  display: flex;
+  align-items: center;
+  gap: 2px;
+  padding: 0 4px;
+  height: clamp(10px, 1.6vw, 14px);
+}
+
+/* Individual pixel blocks */
+.retro-block {
+  flex: 1;
+  height: 100%;
+  background: transparent;
+  image-rendering: pixelated;
+}
+
+.retro-block.filled {
+  background: #ffffff;
 }

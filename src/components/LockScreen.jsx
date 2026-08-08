@@ -66,8 +66,8 @@ const LockScreen = ({ onUnlock, onLogout }) => {
         overflow: 'hidden',
         fontFamily: "var(--font-display)",
         userSelect: 'none',
-        // Layered background using the sunset cat wallpaper sunset-cat-wallpaper.jpg
-        background: `linear-gradient(rgba(15, 13, 19, 0.15), rgba(15, 13, 19, 0.35)), url('/images/sunset-cat-wallpaper.jpg') no-repeat center center`,
+        // Layered background using Miles Morales wallpaper
+        background: `url('/images/desktop-wallpaper-new.jpeg') no-repeat center center`,
         backgroundSize: 'cover',
         display: 'flex',
         flexDirection: 'column',
