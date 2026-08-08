@@ -23,13 +23,18 @@ function App() {
   // Keep track of the current periodic glitch timer interval (starts at 10s)
   const currentGlitchInterval = useRef(10);
 
+  // Track audio state globally
+  const [currentTrackIndex, setCurrentTrackIndex] = useState(0); // 0 = Sunflower
+  const [isPlayingMusic, setIsPlayingMusic] = useState(false);
+
   // Track if windows are running/open (present in taskbar)
   const [activeWindows, setActiveWindows] = useState({
     about: false,
     projects: false,
     skills: false,
     contact: false,
-    terminal: false
+    terminal: false,
+    music: false
   });
 
   // Track if windows are minimized
@@ -38,7 +43,8 @@ function App() {
     projects: false,
     skills: false,
     contact: false,
-    terminal: false
+    terminal: false,
+    music: false
   });
 
   // Track if windows are maximized (covering workspace)
@@ -47,7 +53,8 @@ function App() {
     projects: false,
     skills: false,
     contact: false,
-    terminal: false
+    terminal: false,
+    music: false
   });
 
   // Apply light/dark theme global variables
@@ -75,15 +82,18 @@ function App() {
 
   // Handle logging out from the OS back to the room
   const handleLogout = () => {
+    // Pause audio playback on logout
+    setIsPlayingMusic(false);
+
     // Close all windows first
     setActiveWindows({
-      about: false, projects: false, skills: false, contact: false, terminal: false
+      about: false, projects: false, skills: false, contact: false, terminal: false, music: false
     });
     setMinimizedWindows({
-      about: false, projects: false, skills: false, contact: false, terminal: false
+      about: false, projects: false, skills: false, contact: false, terminal: false, music: false
     });
     setMaximizedWindows({
-      about: false, projects: false, skills: false, contact: false, terminal: false
+      about: false, projects: false, skills: false, contact: false, terminal: false, music: false
     });
 
     // Dismiss any active toast
@@ -108,12 +118,17 @@ function App() {
   // Handle swipe unlock
   const handleUnlock = () => {
     setIsLocked(false);
+    // Auto-launch Music Player startup app and start playing Sunflower
+    setActiveWindows(prev => ({ ...prev, music: true }));
+    setMinimizedWindows(prev => ({ ...prev, music: false }));
+    setIsPlayingMusic(true);
   };
 
   // Handle lock screen trigger (from start menu lock button)
   const handleLock = () => {
     setIsLocked(true);
-    // DO NOT reset hasGlitched, so subsequent unlocks skip auto-opening the terminal
+    // Pause audio when locked
+    setIsPlayingMusic(false);
   };
 
   // ─── GLITCH SEQUENCES ─────────────────────────────────────────
@@ -336,6 +351,12 @@ function App() {
                 onTaskbarClick={handleTaskbarClick}
                 onLock={handleLock}
                 onLogout={handleLogout}
+                currentTrackIndex={currentTrackIndex}
+                setCurrentTrackIndex={setCurrentTrackIndex}
+                isPlayingMusic={isPlayingMusic}
+                setIsPlayingMusic={setIsPlayingMusic}
+                isLocked={isLocked}
+                currentScene={currentScene}
               />
             </>
           )}

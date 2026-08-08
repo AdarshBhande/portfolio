@@ -2,6 +2,7 @@ import React, { useState, useEffect, useRef } from 'react';
 import { portfolioData } from '../data/portfolioData';
 import WindowFrame from './WindowFrame';
 import Terminal from './Terminal';
+import MusicPlayer from './MusicPlayer';
 
 const Desktop = ({ 
   activeWindows, 
@@ -14,7 +15,13 @@ const Desktop = ({
   activeTheme, 
   setActiveTheme,
   onLock,
-  onLogout
+  onLogout,
+  currentTrackIndex,
+  setCurrentTrackIndex,
+  isPlayingMusic,
+  setIsPlayingMusic,
+  isLocked,
+  currentScene
 }) => {
   const [clockTime, setClockTime] = useState('');
   const [openApp, setOpenApp] = useState(null); // Notepad/Paint mock viewer
@@ -82,7 +89,7 @@ const Desktop = ({
     { id: 'github', label: 'GitHub', icon: '🐙', type: 'link', url: portfolioData.personalInfo.github },
     { id: 'about', label: 'About Me', icon: '👤', type: 'window', windowName: 'about' },
     { id: 'contact', label: 'Contact', icon: '📞', type: 'window', windowName: 'contact' },
-    { id: 'music', label: 'Snorlax Player', icon: '🎵', type: 'mock', message: 'Snorlax Audio Player: Playing "Lo-Fi Lullaby.mp3" 💤' },
+    { id: 'music', label: 'Music Player', icon: '🎵', type: 'window', windowName: 'music' },
     { id: 'my-computer', label: 'My Computer', icon: '🖥️', type: 'window', windowName: 'projects' },
     { id: 'recycle', label: 'Recycle Bin', icon: '🗑️', type: 'mock', message: 'Recycle Bin is empty. (0 items)' },
     { id: 'terminal', label: 'cmd.exe', icon: '💻', type: 'terminal' },
@@ -108,7 +115,7 @@ const Desktop = ({
     { id: 'paint', label: 'MS Paint', icon: '🖌️', type: 'mock', message: 'Opening MS Paint... Drawing board initialized!' },
     { id: 'minesweeper', label: 'Minesweeper', icon: '💣', type: 'mock', message: 'Minesweeper loaded. Avoid the bombs!' },
     { id: 'solitaire', label: 'Solitaire', icon: '🃏', type: 'mock', message: 'Starting Solitaire... dealing cards.' },
-    { id: 'music', label: 'Audio Player', icon: '🎵', type: 'mock', message: 'Playing audio: Lo-Fi Lullaby.mp3' },
+    { id: 'music', label: 'Music Player', icon: '🎵', type: 'window', windowName: 'music' },
     { id: 'internet', label: 'Explorer', icon: '🌐', type: 'link', url: 'https://google.com' },
     { id: 'github', label: 'GitHub', icon: '🐙', type: 'link', url: portfolioData.personalInfo.github }
   ];
@@ -505,6 +512,28 @@ const Desktop = ({
         </WindowFrame>
       )}
 
+      {/* MUSIC PLAYER APPLICATION WINDOW */}
+      {activeWindows.music && (
+        <WindowFrame
+          title="Groove Music — Player"
+          icon="🎵"
+          onClose={() => toggleWindow('music', false)}
+          onMinimize={() => onMinimizeWindow('music')}
+          onMaximize={() => onMaximizeWindow('music')}
+          isMinimized={minimizedWindows.music}
+          isMaximized={maximizedWindows.music}
+        >
+          <MusicPlayer
+            currentTrackIndex={currentTrackIndex}
+            setCurrentTrackIndex={setCurrentTrackIndex}
+            isPlaying={isPlayingMusic}
+            setIsPlaying={setIsPlayingMusic}
+            isLocked={isLocked}
+            currentScene={currentScene}
+          />
+        </WindowFrame>
+      )}
+
       {/* MOCK APPLICATION NOTEPAD/WINDOWS */}
       {openApp && (
         <WindowFrame
@@ -604,6 +633,17 @@ const Desktop = ({
             style={{ display: activeWindows.terminal ? 'flex' : 'none' }}
           >
             <span className="w11-taskbar-icon">💻</span>
+            <div className="w11-taskbar-indicator"></div>
+          </button>
+
+          {/* Music Player Tab */}
+          <button 
+            className={`w11-taskbar-btn ${isTabActive('music') ? 'active' : ''}`}
+            onClick={() => onTaskbarClick('music')}
+            title="Music Player"
+            style={{ display: activeWindows.music ? 'flex' : 'none' }}
+          >
+            <span className="w11-taskbar-icon">🎵</span>
             <div className="w11-taskbar-indicator"></div>
           </button>
 
