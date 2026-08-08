@@ -32,42 +32,48 @@ const GuestBook = () => {
     let subscription = null;
 
     const fetchEntries = async () => {
-      if (isSupabaseConfigured && supabase) {
-        const { data, error } = await supabase
-          .from('guestbook')
-          .select('*')
-          .order('created_at', { ascending: false });
+      try {
+        if (isSupabaseConfigured && supabase) {
+          const { data, error } = await supabase
+            .from('guestbook')
+            .select('*')
+            .order('created_at', { ascending: false });
 
-        if (!error && data && data.length > 0) {
-          setEntries(data.map(item => ({
-            id: item.id,
-            name: item.name,
-            avatar: item.avatar || '🚀',
-            message: item.message,
-            date: new Date(item.created_at).toLocaleString()
-          })));
+          if (!error && data && data.length > 0) {
+            setEntries(data.map(item => ({
+              id: item.id,
+              name: item.name,
+              avatar: item.avatar || '🚀',
+              message: item.message,
+              date: new Date(item.created_at).toLocaleString()
+            })));
+          } else {
+            loadLocal();
+          }
+
+          // Subscribe to live real-time changes
+          subscription = supabase
+            .channel('guestbook_realtime')
+            .on('postgres_changes', { event: 'INSERT', schema: 'public', table: 'guestbook' }, (payload) => {
+              const newItem = payload.new;
+              setEntries(prev => [{
+                id: newItem.id,
+                name: newItem.name,
+                avatar: newItem.avatar || '🚀',
+                message: newItem.message,
+                date: new Date(newItem.created_at).toLocaleString()
+              }, ...prev]);
+            })
+            .subscribe();
         } else {
           loadLocal();
         }
-
-        // Subscribe to live real-time changes
-        subscription = supabase
-          .channel('guestbook_realtime')
-          .on('postgres_changes', { event: 'INSERT', schema: 'public', table: 'guestbook' }, (payload) => {
-            const newItem = payload.new;
-            setEntries(prev => [{
-              id: newItem.id,
-              name: newItem.name,
-              avatar: newItem.avatar || '🚀',
-              message: newItem.message,
-              date: new Date(newItem.created_at).toLocaleString()
-            }, ...prev]);
-          })
-          .subscribe();
-      } else {
+      } catch (err) {
+        console.error('Error loading guestbook entries:', err);
         loadLocal();
       }
     };
+
 
     const loadLocal = () => {
       const saved = localStorage.getItem('spidey_os_guestbook');
@@ -165,7 +171,7 @@ const GuestBook = () => {
           <div className="form-group">
             <label>Choose Avatar:</label>
             <div className="emoji-picker-row">
-              {EMOJIS.map(emoji => (
+              {EMOJI_OPTIONS.map(emoji => (
                 <button
                   type="button"
                   key={emoji}
@@ -175,6 +181,7 @@ const GuestBook = () => {
                   {emoji}
                 </button>
               ))}
+
             </div>
           </div>
         </div>
