@@ -145,7 +145,28 @@ const Desktop = ({
       setOpenApp({ 
         title: 'README.txt — Notepad', 
         icon: '📝', 
-        content: `File Name: README.txt\nOwner: Adarsh Bhande\n\nWelcome to my Creative OS Portfolio!\n\nThis application simulates a classic Windows XP shell.\nUse the terminal (cmd.exe) to explore the system at a developer level,\nor navigate the desktop folders to check my skills and project phases.\n\nEnjoy the trip down memory lane!` 
+        content: `===========================================================
+                BHANDE OS — SYSTEM README
+===========================================================
+Owner:       Adarsh Bhande
+Role:        Creative Developer
+Education:   Software Engineering (Information Technology)
+Email:       bhandeadarsh2006@gmail.com
+GitHub:      https://github.com/AdarshBhande
+LinkedIn:    https://www.linkedin.com/in/adarsh-bhande
+Resume:      https://drive.google.com/file/d/1IJus1mJqHD_NWEA6GaVHiV7WHQQ125D4/view?usp=sharing
+
+Welcome to my Interactive Portfolio Operating System!
+
+Features built into this environment:
+• 🎵 Groove Music Player (auto-plays Sunflower & full playlist)
+• 💣 Playable 9x9 Minesweeper game
+• 🃏 Playable Klondike Solitaire card game
+• 🖌️ MS Paint freehand canvas drawing board (with PNG download)
+• 📒 Visitor Guest Book (with localStorage persistence)
+• 🎨 Photoshop Creative Works Gallery
+• 💻 cmd.exe CLI Terminal parser with autocomplete & commands
+===========================================================`
       });
     } else if (icon.type === 'mock-file') {
       setOpenApp({
@@ -622,18 +643,30 @@ const Desktop = ({
       )}
 
 
-      {/* MOCK APPLICATION NOTEPAD/WINDOWS */}
+      {/* APPLICATION NOTEPAD/FILE VIEWER */}
       {openApp && (
         <WindowFrame
           title={openApp.title}
           icon={openApp.icon}
           onClose={() => setOpenApp(null)}
         >
-          <div style={{ whiteSpace: 'pre-wrap', fontFamily: 'var(--font-mono)', fontSize: '0.85rem', color: 'var(--text-dark)', lineHeight: 1.6 }}>
+          <div style={{ 
+            whiteSpace: 'pre-wrap', 
+            fontFamily: 'var(--font-mono)', 
+            fontSize: '0.88rem', 
+            color: '#ffffff', 
+            background: '#111827', 
+            padding: '16px', 
+            borderRadius: '8px', 
+            minHeight: '280px',
+            lineHeight: 1.6,
+            boxShadow: 'inset 0 2px 8px rgba(0,0,0,0.5)'
+          }}>
             {openApp.content}
           </div>
         </WindowFrame>
       )}
+
 
       {/* Windows 11 Center-Aligned Taskbar */}
       <div className="w11-taskbar">
