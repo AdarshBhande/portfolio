@@ -1,30 +1,24 @@
 import React, { useState, useEffect } from 'react';
+import { supabase, isSupabaseConfigured } from '../lib/supabaseClient';
+
+const EMOJI_OPTIONS = ['🚀', '💻', '🎨', '🔥', '🕷️', '⭐', '🎧', '⚡'];
 
 const INITIAL_ENTRIES = [
   {
     id: 1,
-    name: "Alex Rivera",
-    avatar: "🚀",
-    message: "Mind-blowing portfolio OS! Love the interactive terminal and room scene!",
-    date: "2026-08-08 14:20"
+    name: 'Peter Parker',
+    avatar: '🕷️',
+    message: 'Awesome portfolio OS! Love the Sunflower music player and Solitaire card game!',
+    date: '2026-08-08 19:45'
   },
   {
     id: 2,
-    name: "Sarah Chen",
-    avatar: "🎨",
-    message: "The design aesthetics and retro Windows XP/11 vibes are immaculate. Great work Adarsh!",
-    date: "2026-08-08 18:45"
-  },
-  {
-    id: 3,
-    name: "Devon Marcus",
-    avatar: "💻",
-    message: "Loved the music player integration! Sunflower slaps!",
-    date: "2026-08-09 00:10"
+    name: 'Miles Morales',
+    avatar: '🎨',
+    message: 'Great aesthetic and Spider-Man wallpaper selection. Keep building!',
+    date: '2026-08-08 18:30'
   }
 ];
-
-const EMOJIS = ["🚀", "🎨", "💻", "⚡", "🔥", "👾", "🎧", "🌟"];
 
 const GuestBook = () => {
   const [entries, setEntries] = useState([]);
@@ -33,26 +27,88 @@ const GuestBook = () => {
   const [selectedEmoji, setSelectedEmoji] = useState('🚀');
   const [submittedMessage, setSubmittedMessage] = useState('');
 
-  // Load entries from localStorage or fallback to defaults
+  // Fetch entries from Supabase or fallback to localStorage
   useEffect(() => {
-    const saved = localStorage.getItem('spidey_os_guestbook');
-    if (saved) {
-      try {
-        setEntries(JSON.parse(saved));
-      } catch {
+    let subscription = null;
+
+    const fetchEntries = async () => {
+      if (isSupabaseConfigured && supabase) {
+        const { data, error } = await supabase
+          .from('guestbook')
+          .select('*')
+          .order('created_at', { ascending: false });
+
+        if (!error && data && data.length > 0) {
+          setEntries(data.map(item => ({
+            id: item.id,
+            name: item.name,
+            avatar: item.avatar || '🚀',
+            message: item.message,
+            date: new Date(item.created_at).toLocaleString()
+          })));
+        } else {
+          loadLocal();
+        }
+
+        // Subscribe to live real-time changes
+        subscription = supabase
+          .channel('guestbook_realtime')
+          .on('postgres_changes', { event: 'INSERT', schema: 'public', table: 'guestbook' }, (payload) => {
+            const newItem = payload.new;
+            setEntries(prev => [{
+              id: newItem.id,
+              name: newItem.name,
+              avatar: newItem.avatar || '🚀',
+              message: newItem.message,
+              date: new Date(newItem.created_at).toLocaleString()
+            }, ...prev]);
+          })
+          .subscribe();
+      } else {
+        loadLocal();
+      }
+    };
+
+    const loadLocal = () => {
+      const saved = localStorage.getItem('spidey_os_guestbook');
+      if (saved) {
+        try {
+          setEntries(JSON.parse(saved));
+        } catch {
+          setEntries(INITIAL_ENTRIES);
+        }
+      } else {
         setEntries(INITIAL_ENTRIES);
       }
-    } else {
-      setEntries(INITIAL_ENTRIES);
-    }
+    };
+
+    fetchEntries();
+
+    return () => {
+      if (subscription && supabase) {
+        supabase.removeChannel(subscription);
+      }
+    };
   }, []);
 
-  const handleSubmit = (e) => {
+  const handleSubmit = async (e) => {
     e.preventDefault();
     if (!name.trim() || !message.trim()) return;
 
     const now = new Date();
     const formattedDate = `${now.getFullYear()}-${String(now.getMonth() + 1).padStart(2, '0')}-${String(now.getDate()).padStart(2, '0')} ${String(now.getHours()).padStart(2, '0')}:${String(now.getMinutes()).padStart(2, '0')}`;
+
+    if (isSupabaseConfigured && supabase) {
+      const { error } = await supabase
+        .from('guestbook')
+        .insert([
+          { name: name.trim(), avatar: selectedEmoji, message: message.trim() }
+        ]);
+
+      if (error) {
+        console.error('Supabase guestbook insert error:', error);
+      }
+    }
 
     const newEntry = {
       id: Date.now(),
@@ -62,9 +118,11 @@ const GuestBook = () => {
       date: formattedDate
     };
 
-    const updated = [newEntry, ...entries];
-    setEntries(updated);
-    localStorage.setItem('spidey_os_guestbook', JSON.stringify(updated));
+    if (!isSupabaseConfigured) {
+      const updated = [newEntry, ...entries];
+      setEntries(updated);
+      localStorage.setItem('spidey_os_guestbook', JSON.stringify(updated));
+    }
 
     setName('');
     setMessage('');
