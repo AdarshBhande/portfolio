@@ -87,7 +87,7 @@ const Desktop = ({
     { id: 'solitaire', label: 'Solitaire', icon: '🃏', type: 'window', windowName: 'solitaire' },
     { id: 'projects', label: 'Dev Projects', icon: '📁', type: 'window', windowName: 'projects' },
     { id: 'guestbook', label: 'Guest Book', icon: '📒', type: 'window', windowName: 'guestbook' },
-    { id: 'instagram', label: 'Instagram', icon: '📸', type: 'link', url: 'https://instagram.com/adarshbhande-mock' },
+
     
     // Column 2 (Middle column)
     { id: 'resume', label: 'Resume.pdf', icon: '📄', type: 'link', url: portfolioData.personalInfo.resumeUrl },

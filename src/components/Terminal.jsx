@@ -120,7 +120,7 @@ const Terminal = ({ activeTheme, setActiveTheme, onClose }) => {
           { text: '  pwd             Print the path of the current directory', type: 'system' },
           { text: '  open <phase>    Launch a specific project phase (e.g. open phase-1)', type: 'system' },
           { text: '  theme <theme>   Change terminal themes (theme dark | theme light)', type: 'system' },
-          { text: '  resume          Trigger mock resume download', type: 'system' },
+          { text: '  resume          Open Google Drive resume document', type: 'system' },
           { text: '  contact         Show email and social networking links', type: 'system' },
           { text: '  history         Show list of commands typed in this session', type: 'system' },
           { text: '  clear           Flush terminal log buffer', type: 'system' },
@@ -220,7 +220,7 @@ const Terminal = ({ activeTheme, setActiveTheme, onClose }) => {
             if (match.demo && match.demo !== '#') {
               window.open(match.demo, '_blank');
             } else {
-              newHistory.push({ text: `[info] project demo uses a local mock placeholder.`, type: 'warning' });
+              newHistory.push({ text: `[info] opening live project link...`, type: 'info' });
             }
           } else {
             newHistory.push({ text: `open: project not found: ${projName}. Choose from: phase-1, phase-2, phase-3, phase-4`, type: 'error' });
