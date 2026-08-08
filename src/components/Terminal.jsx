@@ -256,12 +256,13 @@ const Terminal = ({ activeTheme, setActiveTheme, onClose }) => {
 
       case 'contact':
         newHistory.push(
-          { text: `Email: ${portfolioData.personalInfo.email}`, type: 'default' },
-          { text: `GitHub: ${portfolioData.personalInfo.github}`, type: 'default' },
+          { text: `Email:    ${portfolioData.personalInfo.email}`, type: 'default' },
+          { text: `GitHub:   ${portfolioData.personalInfo.github}`, type: 'default' },
           { text: `LinkedIn: ${portfolioData.personalInfo.linkedin}`, type: 'default' },
-          { text: `Twitter: ${portfolioData.personalInfo.twitter}`, type: 'default' }
+          { text: `Resume:   ${portfolioData.personalInfo.resumeUrl}`, type: 'default' }
         );
         break;
+
 
       case 'history':
         const revHistory = [...newCmdHistory].reverse();

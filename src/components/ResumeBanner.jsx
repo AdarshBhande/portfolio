@@ -1,15 +1,12 @@
 import React from 'react';
+import { portfolioData } from '../data/portfolioData';
 
-const ResumeBanner = ({ resumeUrl = '#' }) => {
-  const handleClick = (e) => {
-    e.preventDefault();
-    alert("Resume download triggered! (Mock PDF Placeholder)");
-  };
+const ResumeBanner = () => {
+  const resumeUrl = portfolioData.personalInfo.resumeUrl;
 
   return (
     <a 
       href={resumeUrl}
-      onClick={handleClick}
       className="resume-banner-pinned"
       target="_blank"
       rel="noopener noreferrer"
@@ -22,3 +19,4 @@ const ResumeBanner = ({ resumeUrl = '#' }) => {
 };
 
 export default ResumeBanner;
+

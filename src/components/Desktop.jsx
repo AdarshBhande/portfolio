@@ -479,7 +479,7 @@ const Desktop = ({
                 <span className="contact-icon">🐙</span>
                 <div className="contact-details">
                   <span className="contact-label">GitHub</span>
-                  <span className="contact-value">github.com/adarshbhande-mock</span>
+                  <span className="contact-value">{portfolioData.personalInfo.github.replace('https://', '')}</span>
                 </div>
               </a>
 
@@ -487,9 +487,18 @@ const Desktop = ({
                 <span className="contact-icon">🔗</span>
                 <div className="contact-details">
                   <span className="contact-label">LinkedIn</span>
-                  <span className="contact-value">linkedin.com/in/adarshbhande-mock</span>
+                  <span className="contact-value">{portfolioData.personalInfo.linkedin.replace('https://www.', '').replace('https://', '')}</span>
                 </div>
               </a>
+
+              <a href={portfolioData.personalInfo.resumeUrl} target="_blank" rel="noopener noreferrer" className="contact-card" id="contact-resume">
+                <span className="contact-icon">📄</span>
+                <div className="contact-details">
+                  <span className="contact-label">Resume / CV</span>
+                  <span className="contact-value">Google Drive Resume</span>
+                </div>
+              </a>
+
             </div>
           </div>
         </WindowFrame>
