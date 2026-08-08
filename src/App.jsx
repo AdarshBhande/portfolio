@@ -3,6 +3,7 @@ import IntroLoader from './components/IntroLoader';
 import RoomScene from './components/RoomScene';
 import LockScreen from './components/LockScreen';
 import Desktop from './components/Desktop';
+import roomGif from './assets/pixel-art-room.gif';
 import './index.css';
 
 function App() {
@@ -273,7 +274,7 @@ function App() {
           <div className="zoom-room-layer">
             <div className="room-stage">
               <img
-                src={`./images/pixel-art-room.gif?t=${Date.now()}`}
+                src={roomGif}
                 alt="Pixel art room"
                 className="room-gif"
                 draggable={false}
@@ -296,7 +297,7 @@ function App() {
           <div className="zoom-room-layer">
             <div className="room-stage">
               <img
-                src={`./images/pixel-art-room.gif?t=${Date.now()}`}
+                src={roomGif}
                 alt="Pixel art room"
                 className="room-gif"
                 draggable={false}

@@ -1,4 +1,5 @@
 import React, { useState, useEffect, useRef } from 'react';
+import cheesesteakGif from '../assets/cheesesteak-horror.gif';
 
 const DURATION = 3000;
 const TOTAL_BLOCKS = 20; // number of pixel blocks in the bar
@@ -48,11 +49,12 @@ const IntroLoader = ({ onComplete }) => {
       <div className="loader-inner">
         {/* GIF */}
         <img
-          src="./images/cheesesteak-horror.gif"
+          src={cheesesteakGif}
           alt="Loading"
           className="loader-gif-img"
           draggable={false}
         />
+
 
 
         {/* Retro loading bar */}

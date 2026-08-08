@@ -1,4 +1,5 @@
 import React, { useState, useEffect } from 'react';
+import desktopWallpaper from '../assets/desktop-wallpaper-new.jpeg';
 
 const LockScreen = ({ onUnlock, onLogout }) => {
   const [time, setTime] = useState('');
@@ -67,7 +68,7 @@ const LockScreen = ({ onUnlock, onLogout }) => {
         fontFamily: "var(--font-display)",
         userSelect: 'none',
         // Layered background using Miles Morales wallpaper
-        background: `url('./images/desktop-wallpaper-new.jpeg') no-repeat center center`,
+        background: `url(${desktopWallpaper}) no-repeat center center`,
         backgroundSize: 'cover',
         display: 'flex',
         flexDirection: 'column',

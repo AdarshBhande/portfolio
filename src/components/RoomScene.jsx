@@ -1,4 +1,5 @@
 import React, { useState, useEffect, useRef } from 'react';
+import roomGif from '../assets/pixel-art-room.gif';
 
 const RoomScene = ({ onEnterLaptop }) => {
   const [showArrow, setShowArrow] = useState(false);
@@ -26,11 +27,12 @@ const RoomScene = ({ onEnterLaptop }) => {
         {/* Pixel Art GIF Background */}
         <img
           key={gifKey}
-          src={`./images/pixel-art-room.gif?t=${gifKey}`}
+          src={roomGif}
           alt="Pixel art room with laptop"
           className="room-gif"
           draggable={false}
         />
+
 
 
         {/* Laptop screen glow effect */}
