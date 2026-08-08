@@ -48,11 +48,12 @@ const IntroLoader = ({ onComplete }) => {
       <div className="loader-inner">
         {/* GIF */}
         <img
-          src="/images/cheesesteak-horror.gif"
+          src="./images/cheesesteak-horror.gif"
           alt="Loading"
           className="loader-gif-img"
           draggable={false}
         />
+
 
         {/* Retro loading bar */}
         <div className="retro-loader">

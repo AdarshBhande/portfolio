@@ -273,7 +273,7 @@ function App() {
           <div className="zoom-room-layer">
             <div className="room-stage">
               <img
-                src={`/images/pixel-art-room.gif?t=${Date.now()}`}
+                src={`./images/pixel-art-room.gif?t=${Date.now()}`}
                 alt="Pixel art room"
                 className="room-gif"
                 draggable={false}
@@ -296,7 +296,7 @@ function App() {
           <div className="zoom-room-layer">
             <div className="room-stage">
               <img
-                src={`/images/pixel-art-room.gif?t=${Date.now()}`}
+                src={`./images/pixel-art-room.gif?t=${Date.now()}`}
                 alt="Pixel art room"
                 className="room-gif"
                 draggable={false}

@@ -135,7 +135,7 @@ html, body, #root {
   height: 100vh;
   position: relative;
   /* Desktop wallpaper - Miles Morales Spider-Man */
-  background: url('/images/desktop-wallpaper-new.jpeg') no-repeat center center;
+  background: url('./images/desktop-wallpaper-new.jpeg') no-repeat center center;
   background-size: cover;
   overflow: hidden;
   display: flex;
@@ -1033,7 +1033,7 @@ html, body, #root {
   width: 30px;
   height: 30px;
   border-radius: 50%;
-  background-image: url('/images/lockscreen.png');
+  background-image: url('./images/lockscreen.png');
   background-size: cover;
   background-position: center;
   border: 1px solid rgba(255,255,255,0.2);

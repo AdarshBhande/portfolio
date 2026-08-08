@@ -67,7 +67,7 @@ const LockScreen = ({ onUnlock, onLogout }) => {
         fontFamily: "var(--font-display)",
         userSelect: 'none',
         // Layered background using Miles Morales wallpaper
-        background: `url('/images/desktop-wallpaper-new.jpeg') no-repeat center center`,
+        background: `url('./images/desktop-wallpaper-new.jpeg') no-repeat center center`,
         backgroundSize: 'cover',
         display: 'flex',
         flexDirection: 'column',

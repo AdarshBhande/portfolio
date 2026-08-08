@@ -26,11 +26,12 @@ const RoomScene = ({ onEnterLaptop }) => {
         {/* Pixel Art GIF Background */}
         <img
           key={gifKey}
-          src={`/images/pixel-art-room.gif?t=${gifKey}`}
+          src={`./images/pixel-art-room.gif?t=${gifKey}`}
           alt="Pixel art room with laptop"
           className="room-gif"
           draggable={false}
         />
+
 
         {/* Laptop screen glow effect */}
         <div className="room-laptop-glow"></div>
