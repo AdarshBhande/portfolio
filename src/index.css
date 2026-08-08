@@ -1669,7 +1669,7 @@ html, body, #root {
 }
 
 /* ═══════════════════════════════════════════════════════════════
-   INTRO LOADER — Pixel Art Lighter Loading Screen
+   INTRO LOADER — GIF Loading Screen
    ═══════════════════════════════════════════════════════════════ */
 
 .intro-loader-container {
@@ -1686,63 +1686,24 @@ html, body, #root {
   z-index: 1000000;
   overflow: hidden;
   user-select: none;
+  opacity: 1;
+  transition: opacity 0.8s ease-out;
 }
 
-/* White flash overlay when ignited */
-.intro-flash-overlay {
-  position: absolute;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
-  background: #ffffff;
-  z-index: 1000002;
+/* Smooth fade out */
+.intro-loader-container.fading {
+  opacity: 0;
+}
+
+/* Hidden after fade completes */
+.intro-loader-container.complete {
+  opacity: 0;
   pointer-events: none;
-  animation: flashFadeOut 0.5s ease-out forwards;
+  visibility: hidden;
 }
 
-@keyframes flashFadeOut {
-  from { opacity: 1; }
-  to { opacity: 0; }
-}
-
-/* 24x24 pixel grid covering the screen */
-.burn-grid {
-  position: absolute;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
-  display: grid;
-  grid-template-columns: repeat(24, 1fr);
-  grid-template-rows: repeat(24, 1fr);
-  z-index: 1000001;
-  pointer-events: none;
-}
-
-.burn-cell {
-  background-color: #000000;
-  width: 101%; /* slight overlap to prevent 1px render lines */
-  height: 101%;
-}
-
-/* Trigger pixelated expanding circle (Pokemon Flash TM) wave */
-.intro-loader-container.burning .burn-cell {
-  animation: pokemonFlashReveal 0.15s steps(1) forwards;
-  animation-delay: var(--burn-delay);
-}
-
-@keyframes pokemonFlashReveal {
-  0% {
-    background-color: #000000;
-  }
-  100% {
-    background-color: transparent;
-  }
-}
-
-/* Centered Zippo container - smaller size */
-.lighter-intro-wrapper {
+/* Centered GIF container - lighter size */
+.loader-gif-wrapper {
   position: absolute;
   width: min(18vw, 120px);
   height: min(18vw, 120px);
@@ -1753,62 +1714,10 @@ html, body, #root {
   pointer-events: none;
 }
 
-.lighter-status-text {
-  position: absolute;
-  bottom: -35px;
-  font-family: 'Courier New', Courier, monospace;
-  font-size: 13px;
-  color: #a0a0a0;
-  letter-spacing: 1.5px;
-  animation: statusBlink 1.2s infinite alternate;
-  white-space: nowrap;
-}
-
-@keyframes statusBlink {
-  from { opacity: 0.35; }
-  to { opacity: 1; }
-}
-
-.lighter-intro-img {
+.loader-gif-img {
   width: 100%;
   height: 100%;
   object-fit: contain;
   image-rendering: pixelated;
   filter: drop-shadow(0 4px 15px rgba(0, 0, 0, 0.9));
-  transform-origin: center bottom;
-  animation: lighterIdle 1.5s ease-in-out infinite alternate;
 }
-
-@keyframes lighterIdle {
-  from { transform: translateY(0) rotate(0deg); }
-  to { transform: translateY(-3px) rotate(0.5deg); }
-}
-
-/* Fade out lighter during flash transition */
-.intro-loader-container.burning .lighter-intro-img {
-  animation: lighterDissolve 0.5s ease-out forwards;
-}
-
-@keyframes lighterDissolve {
-  0% {
-    transform: scale(1);
-    opacity: 1;
-  }
-  100% {
-    transform: scale(0.6);
-    opacity: 0;
-  }
-}
-
-/* Loader fade out overlay at the very end */
-.intro-loader-container.complete {
-  animation: loaderContainerFadeOut 0.4s ease-out forwards;
-}
-
-@keyframes loaderContainerFadeOut {
-  from { opacity: 1; pointer-events: auto; }
-  to { opacity: 0; pointer-events: none; }
-}
-
-
-
