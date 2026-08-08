@@ -77,7 +77,8 @@ const Terminal = ({ activeTheme, setActiveTheme, onClose }) => {
     return (
       <span className="terminal-prompt-prefix" style={{ userSelect: 'none' }}>
         <span style={{ color: '#ff8c00', fontWeight: 600 }}>visitor</span>
-        <span style={{ color: '#10b981', fontWeight: 600 }}>@terminal.bhande.dev</span>
+        <span style={{ color: '#10b981', fontWeight: 600 }}>@terminal.spidey.dev</span>
+
         <span style={{ color: '#ffffff' }}>:</span>
         <span style={{ color: '#06b6d4', fontWeight: 600 }}>{dir}</span>
         <span style={{ color: '#ffffff', marginRight: '6px' }}>$</span>

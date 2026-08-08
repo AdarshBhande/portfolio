@@ -75,7 +75,8 @@ const PaintApp = () => {
     const image = canvas.toDataURL('image/png');
     const link = document.createElement('a');
     link.href = image;
-    link.download = 'bhande-os-painting.png';
+    link.download = 'spidey-os-painting.png';
+
     link.click();
   };
 

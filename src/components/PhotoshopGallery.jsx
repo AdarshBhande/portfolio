@@ -19,7 +19,8 @@ const CREATIVE_WORKS = [
   },
   {
     id: 3,
-    title: "Bhande OS Windows 11 UI Design",
+    title: "Spidey OS Windows 11 UI Design",
+
     category: "UI/UX",
     image: "https://images.unsplash.com/photo-1507238691740-187a5b1d37b8?w=800&q=80",
     description: "Sleek dark glassmorphism operating system layout with custom taskbar widgets and floating windows.",

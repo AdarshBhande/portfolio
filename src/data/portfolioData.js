@@ -3,7 +3,8 @@ export const portfolioData = {
     name: "Adarsh Bhande",
     role: "Creative Developer",
     location: "India",
-    username: "adarsh@bhande-os",
+    username: "adarsh@spidey-os",
+
     email: "bhandeadarsh2006@gmail.com",
     github: "https://github.com/AdarshBhande",
     linkedin: "https://www.linkedin.com/in/adarsh-bhande",

@@ -299,8 +299,9 @@ function App() {
           <div className="zoom-os-layer">
             <div className="zoom-os-placeholder">
               <div className="zoom-boot-text">
-                <span className="boot-dot">●</span> Booting BHANDE OS...
+                <span className="boot-dot">●</span> Booting SPIDEY OS...
               </div>
+
             </div>
           </div>
         </div>

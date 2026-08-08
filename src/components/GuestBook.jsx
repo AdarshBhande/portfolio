@@ -35,7 +35,7 @@ const GuestBook = () => {
 
   // Load entries from localStorage or fallback to defaults
   useEffect(() => {
-    const saved = localStorage.getItem('bhande_os_guestbook');
+    const saved = localStorage.getItem('spidey_os_guestbook');
     if (saved) {
       try {
         setEntries(JSON.parse(saved));
@@ -64,7 +64,7 @@ const GuestBook = () => {
 
     const updated = [newEntry, ...entries];
     setEntries(updated);
-    localStorage.setItem('bhande_os_guestbook', JSON.stringify(updated));
+    localStorage.setItem('spidey_os_guestbook', JSON.stringify(updated));
 
     setName('');
     setMessage('');

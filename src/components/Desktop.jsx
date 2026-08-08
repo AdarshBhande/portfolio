@@ -146,8 +146,9 @@ const Desktop = ({
         title: 'README.txt — Notepad', 
         icon: '📝', 
         content: `===========================================================
-                BHANDE OS — SYSTEM README
+                SPIDEY OS — SYSTEM README
 ===========================================================
+
 Owner:       Adarsh Bhande
 Role:        Creative Developer
 Education:   Software Engineering (Information Technology)
