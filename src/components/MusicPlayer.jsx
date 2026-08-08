@@ -7,8 +7,7 @@ export const PLAYLIST = [
     artist: "Post Malone, Swae Lee",
     album: "Spider-Man: Into the Spider-Verse",
     cover: "https://images.unsplash.com/photo-1635805737707-575885ab0820?w=400&q=80",
-    // Audio stream URL (high quality preview link)
-    audioUrl: "https://cdn.pixabay.com/download/audio/2022/05/27/audio_1808fbf07a.mp3?filename=lofi-study-112191.mp3",
+    audioUrl: "./music/sunflower.mp3",
     color: "#e11d48"
   },
   {
@@ -17,7 +16,7 @@ export const PLAYLIST = [
     artist: "G-Eazy & Halsey",
     album: "The Beautiful & Damned",
     cover: "https://images.unsplash.com/photo-1514525253161-7a46d19cd819?w=400&q=80",
-    audioUrl: "https://cdn.pixabay.com/download/audio/2022/01/18/audio_d0a13f69d2.mp3?filename=chill-abstract-intention-12099.mp3",
+    audioUrl: "./music/him-and-i.mp3",
     color: "#8b5cf6"
   },
   {
@@ -26,7 +25,7 @@ export const PLAYLIST = [
     artist: "Christina Perri / John Michael",
     album: "The Twilight Saga: Breaking Dawn",
     cover: "https://images.unsplash.com/photo-1518609878373-06d740f60d8b?w=400&q=80",
-    audioUrl: "https://cdn.pixabay.com/download/audio/2022/03/15/audio_c8c8a73467.mp3?filename=sweet-love-109015.mp3",
+    audioUrl: "./music/a-thousand-years.mp3",
     color: "#ec4899"
   },
   {
@@ -35,7 +34,7 @@ export const PLAYLIST = [
     artist: "Gigi Perez",
     album: "Sailor Song - Single",
     cover: "https://images.unsplash.com/photo-1507525428034-b723cf961d3e?w=400&q=80",
-    audioUrl: "https://cdn.pixabay.com/download/audio/2022/10/14/audio_9939f792e7.mp3?filename=ocean-waves-ambient-1234.mp3",
+    audioUrl: "./music/sailor-song.mp3",
     color: "#06b6d4"
   },
   {
@@ -44,7 +43,7 @@ export const PLAYLIST = [
     artist: "Bruno Mars",
     album: "Doo-Wops & Hooligans",
     cover: "https://images.unsplash.com/photo-1534447677768-be436bb09401?w=400&q=80",
-    audioUrl: "https://cdn.pixabay.com/download/audio/2022/11/06/audio_c0388df634.mp3?filename=upbeat-pop-funk-126435.mp3",
+    audioUrl: "./music/the-lazy-song.mp3",
     color: "#f59e0b"
   }
 ];
