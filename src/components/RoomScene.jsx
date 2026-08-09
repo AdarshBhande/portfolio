@@ -145,7 +145,7 @@ const RoomScene = ({ onEnterLaptop }) => {
               left: h.left,
               width: h.width,
               height: h.height,
-              cursor: h.isClickable ? "url('./assets/Spider Man normal select.cur'), pointer" : "url('./assets/Spider Man normal select.cur'), default",
+              cursor: h.isClickable ? "url('./assets/spiderman-cursor.cur'), pointer" : "url('./assets/spiderman-cursor.cur'), default",
             }}
             onMouseEnter={() => setActiveHotspot(h.id)}
             onMouseLeave={() => setActiveHotspot(null)}

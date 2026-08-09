@@ -74,7 +74,7 @@ const LockScreen = ({ onUnlock, onLogout }) => {
         flexDirection: 'column',
         justifyContent: 'center',
         alignItems: 'center',
-        cursor: "url('./assets/Spider Man normal select.cur'), pointer"
+        cursor: "url('./assets/spiderman-cursor.cur'), pointer"
       }}
     >
       {/* Blurred overlay backdrop to make text pop */}
