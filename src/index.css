@@ -1424,6 +1424,124 @@ html, body, #root {
   pointer-events: none;
 }
 
+/* ─── Room Hotspot Areas (invisible hover zones) ─────────────── */
+
+.room-hotspot {
+  position: absolute;
+  z-index: 8;
+  border: none;
+  background: transparent;
+}
+
+/* ─── Room Labels (annotated diagram style) ───────────────────── */
+
+.room-label {
+  position: absolute;
+  z-index: 15;
+  display: flex;
+  flex-direction: column;
+  gap: 3px;
+  max-width: 120px;
+  opacity: 0;
+  pointer-events: none;
+  transition: opacity 0.3s ease;
+}
+
+.room-label--visible {
+  opacity: 1;
+}
+
+/* Title — pixel font, bold, uppercase, white */
+.room-label__title {
+  font-family: 'Press Start 2P', 'Courier New', monospace;
+  font-size: 0.45rem;
+  font-weight: 400;
+  color: #ffffff;
+  letter-spacing: 0.5px;
+  text-transform: uppercase;
+  line-height: 1.6;
+  text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.9), 0 0 4px rgba(0, 0, 0, 0.6);
+}
+
+/* Description — regular font, smaller, slightly transparent */
+.room-label__desc {
+  font-family: 'Segoe UI', 'Inter', 'Helvetica Neue', sans-serif;
+  font-size: 0.6rem;
+  font-style: italic;
+  color: rgba(255, 255, 255, 0.8);
+  line-height: 1.5;
+  text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.9), 0 0 4px rgba(0, 0, 0, 0.6);
+}
+
+/* ─── Arrow Lines (thin lines pointing from label to object) ── */
+
+.room-label__arrow {
+  position: absolute;
+}
+
+/* Arrow pointing RIGHT → (from left-side labels toward objects) */
+.room-label__arrow--right {
+  top: 6px;
+  left: calc(100% + 6px);
+  width: 35px;
+  height: 0;
+  border-top: 1px solid rgba(255, 255, 255, 0.55);
+}
+
+.room-label__arrow--right::after {
+  content: '';
+  position: absolute;
+  right: -1px;
+  top: -3px;
+  width: 0;
+  height: 0;
+  border-left: 5px solid rgba(255, 255, 255, 0.55);
+  border-top: 3px solid transparent;
+  border-bottom: 3px solid transparent;
+}
+
+/* Arrow pointing DOWN ↓ (from labels above objects) */
+.room-label__arrow--down {
+  bottom: -25px;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 0;
+  height: 20px;
+  border-left: 1px solid rgba(255, 255, 255, 0.55);
+}
+
+.room-label__arrow--down::after {
+  content: '';
+  position: absolute;
+  bottom: -1px;
+  left: -3px;
+  width: 0;
+  height: 0;
+  border-top: 5px solid rgba(255, 255, 255, 0.55);
+  border-left: 3px solid transparent;
+  border-right: 3px solid transparent;
+}
+
+/* Arrow pointing LEFT ← (from right-side labels toward objects) */
+.room-label__arrow--left {
+  top: 6px;
+  right: calc(100% + 6px);
+  width: 35px;
+  height: 0;
+  border-top: 1px solid rgba(255, 255, 255, 0.55);
+}
+
+.room-label__arrow--left::after {
+  content: '';
+  position: absolute;
+  left: -1px;
+  top: -3px;
+  width: 0;
+  height: 0;
+  border-right: 5px solid rgba(255, 255, 255, 0.55);
+  border-top: 3px solid transparent;
+  border-bottom: 3px solid transparent;
+}
 
 /* ═══════════════════════════════════════════════════════════════
    ZOOM TRANSITIONS — Room ↔ OS
